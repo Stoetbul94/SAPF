@@ -17,3 +17,7 @@ npm-debug.log*
 # Optional: Uncomment if you want to ignore large image files during development
 # assets/images/gallery/*.jpg
 # assets/images/gallery/*.png
+
+# Dependencies
+node_modules/
+.pnpm-store/
