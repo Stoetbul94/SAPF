@@ -1,0 +1,77 @@
+{
+  "documents": [
+    {
+      "id": 1,
+      "title": "ISSF Rulebook 2024",
+      "category": "Rulebook",
+      "discipline": "ISSF",
+      "year": 2024,
+      "url": "documents/rulebooks/issf-rulebook-2024.pdf",
+      "description": "Official ISSF rules and regulations for pistol shooting"
+    },
+    {
+      "id": 2,
+      "title": "NPA/PPC Rulebook 2024",
+      "category": "Rulebook",
+      "discipline": "NPA/PPC",
+      "year": 2024,
+      "url": "documents/rulebooks/npa-ppc-rulebook-2024.pdf",
+      "description": "Official NPA/PPC rules and regulations"
+    },
+    {
+      "id": 3,
+      "title": "SAPF Constitution",
+      "category": "Rulebook",
+      "discipline": "General",
+      "year": 2023,
+      "url": "documents/rulebooks/sapf-constitution-2023.pdf",
+      "description": "South African Pistol Federation constitution"
+    },
+    {
+      "id": 4,
+      "title": "National Championships Entry Form 2024",
+      "category": "Entry Form",
+      "discipline": "ISSF",
+      "year": 2024,
+      "url": "documents/entry-forms/2024-national-championships-issf.pdf",
+      "description": "Entry form for ISSF National Championships"
+    },
+    {
+      "id": 5,
+      "title": "Provincial Championships Entry Form 2024",
+      "category": "Entry Form",
+      "discipline": "NPA/PPC",
+      "year": 2024,
+      "url": "documents/entry-forms/2024-provincial-npa.pdf",
+      "description": "Entry form for NPA/PPC Provincial Championships"
+    },
+    {
+      "id": 6,
+      "title": "ISSF National Log 2024",
+      "category": "Logs",
+      "discipline": "ISSF",
+      "year": 2024,
+      "url": "documents/national-logs/issf-national-log-2024.pdf",
+      "description": "Official ISSF National Log for 2024"
+    },
+    {
+      "id": 7,
+      "title": "NPA/PPC National Log 2024",
+      "category": "Logs",
+      "discipline": "NPA/PPC",
+      "year": 2024,
+      "url": "documents/national-logs/npa-ppc-national-log-2024.pdf",
+      "description": "Official NPA/PPC National Log for 2024"
+    },
+    {
+      "id": 8,
+      "title": "Open Competition Results 2024",
+      "category": "Results",
+      "discipline": "ISSF",
+      "year": 2024,
+      "url": "documents/results/2024-open-competition-air-pistol.pdf",
+      "description": "Results from SAPF Open Competition - Air Pistol"
+    }
+  ],
+  "_comment": "Fields: id (unique number), title, category (Rulebook, Entry Form, Results, Logs), discipline (ISSF, NPA/PPC, General), year, url (path to file), description"
+}

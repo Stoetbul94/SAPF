@@ -1,0 +1,50 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "event": "SAPF Open Competition",
+      "date": "2024-02-10",
+      "discipline": "ISSF",
+      "type": "Air Pistol",
+      "pdf": "documents/results/2024-open-competition-air-pistol.pdf",
+      "nationalLog": false
+    },
+    {
+      "id": 2,
+      "event": "SAPF Open Competition",
+      "date": "2024-02-10",
+      "discipline": "ISSF",
+      "type": "Standard Pistol",
+      "pdf": "documents/results/2024-open-competition-standard.pdf",
+      "nationalLog": false
+    },
+    {
+      "id": 3,
+      "event": "NPA/PPC Winter Series",
+      "date": "2024-01-20",
+      "discipline": "NPA/PPC",
+      "type": "PPC 1500",
+      "pdf": "documents/results/2024-winter-series-ppc.pdf",
+      "nationalLog": false
+    },
+    {
+      "id": 4,
+      "event": "ISSF National Log 2024",
+      "date": "2024-01-01",
+      "discipline": "ISSF",
+      "type": "National Log",
+      "pdf": "documents/national-logs/issf-national-log-2024.pdf",
+      "nationalLog": true
+    },
+    {
+      "id": 5,
+      "event": "NPA/PPC National Log 2024",
+      "date": "2024-01-01",
+      "discipline": "NPA/PPC",
+      "type": "National Log",
+      "pdf": "documents/national-logs/npa-ppc-national-log-2024.pdf",
+      "nationalLog": true
+    }
+  ],
+  "_comment": "Fields: id (unique number), event (event name), date (YYYY-MM-DD), discipline (ISSF or NPA/PPC), type (category or 'National Log'), pdf (path to PDF), nationalLog (true/false)"
+}

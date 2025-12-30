@@ -1,0 +1,41 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "src": "assets/images/gallery/competition-1.jpg",
+      "alt": "ISSF Competition - Air Pistol Event",
+      "title": "ISSF Competition - Air Pistol"
+    },
+    {
+      "id": 2,
+      "src": "assets/images/gallery/competition-2.jpg",
+      "alt": "NPA/PPC Championship Event",
+      "title": "NPA/PPC Championship"
+    },
+    {
+      "id": 3,
+      "src": "assets/images/gallery/competition-3.jpg",
+      "alt": "National Championships 2024",
+      "title": "National Championships 2024"
+    },
+    {
+      "id": 4,
+      "src": "assets/images/gallery/competition-4.jpg",
+      "alt": "Award Ceremony",
+      "title": "Award Ceremony"
+    },
+    {
+      "id": 5,
+      "src": "assets/images/gallery/competition-5.jpg",
+      "alt": "Shooting Range Action",
+      "title": "Shooting Range Action"
+    },
+    {
+      "id": 6,
+      "src": "assets/images/gallery/competition-6.jpg",
+      "alt": "Team Photo",
+      "title": "Team Photo"
+    }
+  ],
+  "_comment": "To add images: 1. Place image files in assets/images/gallery/, 2. Add entry with: id (unique), src (path), alt (description), title (display name)"
+}

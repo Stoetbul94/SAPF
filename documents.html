@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Access rulebooks, entry forms, results, and national logs from the South African Pistol Federation.">
+    <link rel="canonical" href="https://yourusername.github.io/sapf/documents.html">
+    <title>Documents | South African Pistol Federation</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-text">
+                        <div>SAPF</div>
+                        <div class="tagline">South African Pistol Federation</div>
+                    </div>
+                </a>
+                <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+                <nav aria-label="Main navigation">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="disciplines.html">Disciplines</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="results.html">Results</a></li>
+                        <li><a href="documents.html" class="active">Documents</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <span class="separator">/</span>
+            <span class="current">Documents</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="content-section" aria-label="Document library">
+        <div class="container">
+            <header>
+                <h1 class="section-title">Document Library</h1>
+                <p class="section-subtitle">Access rulebooks, entry forms, results, and national logs</p>
+            </header>
+            
+            <!-- Filters -->
+            <div class="documents-filters" role="group" aria-label="Document filters">
+                <div class="filter-group">
+                    <h3 class="filter-group-title">Category</h3>
+                    <div class="filters" role="group" aria-label="Category filter">
+                        <button class="filter-btn active" 
+                                data-filter-category="all" 
+                                data-filter-type="category"
+                                aria-pressed="true"
+                                aria-label="Show all categories">All</button>
+                        <button class="filter-btn" 
+                                data-filter-category="Rulebook" 
+                                data-filter-type="category"
+                                aria-pressed="false"
+                                aria-label="Filter by rulebooks">Rulebooks</button>
+                        <button class="filter-btn" 
+                                data-filter-category="Entry Form" 
+                                data-filter-type="category"
+                                aria-pressed="false"
+                                aria-label="Filter by entry forms">Entry Forms</button>
+                        <button class="filter-btn" 
+                                data-filter-category="Results" 
+                                data-filter-type="category"
+                                aria-pressed="false"
+                                aria-label="Filter by results">Results</button>
+                        <button class="filter-btn" 
+                                data-filter-category="Logs" 
+                                data-filter-type="category"
+                                aria-pressed="false"
+                                aria-label="Filter by national logs">National Logs</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h3 class="filter-group-title">Discipline</h3>
+                    <div class="filters" role="group" aria-label="Discipline filter">
+                        <button class="filter-btn active" 
+                                data-filter-discipline="all" 
+                                data-filter-type="discipline"
+                                aria-pressed="true"
+                                aria-label="Show all disciplines">All</button>
+                        <button class="filter-btn" 
+                                data-filter-discipline="ISSF" 
+                                data-filter-type="discipline"
+                                aria-pressed="false"
+                                aria-label="Filter by ISSF">ISSF</button>
+                        <button class="filter-btn" 
+                                data-filter-discipline="NPA/PPC" 
+                                data-filter-type="discipline"
+                                aria-pressed="false"
+                                aria-label="Filter by NPA/PPC">NPA/PPC</button>
+                        <button class="filter-btn" 
+                                data-filter-discipline="General" 
+                                data-filter-type="discipline"
+                                aria-pressed="false"
+                                aria-label="Filter by general documents">General</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Results Count -->
+            <div id="documents-count" class="documents-count" role="status" aria-live="polite" aria-atomic="true">
+                <span id="documents-count-text">Loading documents...</span>
+            </div>
+            
+            <!-- Documents Container -->
+            <div id="documents-container" class="documents-grid" role="list" aria-label="Documents list">
+                <div class="loading" role="status" aria-live="polite">Loading documents...</div>
+            </div>
+            
+            <!-- Empty State -->
+            <div id="documents-empty" class="empty-state hidden" role="status" aria-live="polite">
+                <div class="empty-state-icon">📄</div>
+                <p>No documents found matching your filters.</p>
+                <button class="btn btn-outline mt-2" onclick="resetDocumentFilters()" aria-label="Clear all filters">Clear Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="about.html">About SAPF</a>
+                    <a href="disciplines.html">Disciplines</a>
+                    <a href="events.html">Events Calendar</a>
+                    <a href="results.html">Results & Logs</a>
+                    <a href="documents.html">Documents</a>
+                    <a href="gallery.html">Photo Gallery</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:info@sapf.co.za">info@sapf.co.za</a></p>
+                    <p>Phone: <a href="tel:+27123456789">+27 (0)12 345 6789</a></p>
+                    <p>Address: Pretoria, South Africa</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/sapf" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <span>f</span>
+                        </a>
+                        <a href="https://twitter.com/sapf" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <span>t</span>
+                        </a>
+                        <a href="https://instagram.com/sapf" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <span>📷</span>
+                        </a>
+                        <a href="https://youtube.com/sapf" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <span>▶</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="documents.html">All Documents</a>
+                    <a href="results.html">Competition Results</a>
+                    <a href="events.html">Upcoming Events</a>
+                    <a href="terms.html">Terms of Use</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 South African Pistol Federation. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="terms.html">Terms of Use</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

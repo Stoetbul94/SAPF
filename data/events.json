@@ -1,0 +1,55 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "date": "2024-03-15",
+      "title": "SAPF National Championships - ISSF",
+      "location": "Pretoria Shooting Range",
+      "discipline": "ISSF",
+      "entryForm": "documents/entry-forms/2024-national-championships-issf.pdf",
+      "results": "results.html#event-1",
+      "status": "upcoming"
+    },
+    {
+      "id": 2,
+      "date": "2024-04-20",
+      "title": "Provincial Championships - NPA/PPC",
+      "location": "Cape Town Shooting Club",
+      "discipline": "NPA/PPC",
+      "entryForm": "documents/entry-forms/2024-provincial-npa.pdf",
+      "results": "results.html#event-2",
+      "status": "upcoming"
+    },
+    {
+      "id": 3,
+      "date": "2024-05-10",
+      "title": "Regional Qualifier - ISSF Air Pistol",
+      "location": "Johannesburg Shooting Academy",
+      "discipline": "ISSF",
+      "entryForm": "documents/entry-forms/2024-regional-qualifier.pdf",
+      "results": "results.html#event-3",
+      "status": "upcoming"
+    },
+    {
+      "id": 4,
+      "date": "2024-02-10",
+      "title": "SAPF Open Competition",
+      "location": "Durban Shooting Range",
+      "discipline": "ISSF",
+      "entryForm": null,
+      "results": "results.html#event-4",
+      "status": "completed"
+    },
+    {
+      "id": 5,
+      "date": "2024-01-20",
+      "title": "NPA/PPC Winter Series",
+      "location": "Port Elizabeth Club",
+      "discipline": "NPA/PPC",
+      "entryForm": null,
+      "results": "results.html#event-5",
+      "status": "completed"
+    }
+  ],
+  "_comment": "Fields: id (unique number), date (YYYY-MM-DD), title, location, discipline (ISSF or NPA/PPC), entryForm (path or null), results (path or null), status (upcoming or completed)"
+}
