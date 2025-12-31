@@ -100,6 +100,45 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Override link color for buttons - buttons should use their own color rules */
+/* This must override the base 'a' rule and .content-section .card a rule which sets blue color */
+a.btn,
+a.btn-small,
+a.btn-primary,
+a.btn-secondary,
+.content-section .card a.btn,
+.content-section .card a.btn-small,
+.content-section .card a.btn-primary,
+.content-section .card a.btn-secondary {
+  color: #ffffff !important; /* Force white text for all button links with dark backgrounds */
+}
+
+/* Outline buttons keep blue text */
+a.btn.btn-outline,
+a.btn-small.btn-outline,
+.content-section .card a.btn.btn-outline,
+.content-section .card a.btn-small.btn-outline {
+  color: var(--sapf-primary) !important;
+}
+
+/* On-dark buttons keep dark text */
+a.btn-on-dark,
+a.btn.btn-on-dark,
+.content-section .card a.btn-on-dark,
+.content-section .card a.btn.btn-on-dark {
+  color: var(--sapf-dark) !important;
+}
+
+/* Document, national log, and table cell button links must be white */
+.document-card-footer a.btn,
+.document-card-footer a.btn-small,
+.national-log-footer a.btn,
+.national-log-footer a.btn-small,
+td a.btn,
+td a.btn-small {
+  color: #ffffff !important;
+}
+
 /* Links on dark backgrounds maintain white/gold colors */
 header a,
 .hero a,
@@ -994,8 +1033,12 @@ nav a.active {
 
 .event-card-footer .btn,
 .event-card-footer .btn-outline,
+.event-card-footer .btn-small,
+.event-card-footer .btn-small.btn-outline,
 .event-card-footer a.btn,
-.event-card-footer a.btn-outline {
+.event-card-footer a.btn-outline,
+.event-card-footer a.btn-small,
+.event-card-footer a.btn-small.btn-outline {
   flex: 1;
   min-width: 120px;
   display: inline-flex !important; /* Ensure buttons are always visible */
@@ -1013,14 +1056,17 @@ nav a.active {
 }
 
 /* Override btn-outline specifically */
-.event-card-footer .btn-outline {
+.event-card-footer .btn-outline,
+.event-card-footer .btn-small.btn-outline {
   background-color: #1976d2 !important; /* Fill background instead of transparent */
   color: #ffffff !important; /* Explicit white text */
   border: 2px solid #1976d2 !important;
 }
 
 .event-card-footer .btn:hover,
-.event-card-footer .btn-outline:hover {
+.event-card-footer .btn-outline:hover,
+.event-card-footer .btn-small:hover,
+.event-card-footer .btn-small.btn-outline:hover {
   background-color: #b71c1c !important; /* Darker red on hover */
   color: #ffffff !important; /* Keep white text */
   border-color: #b71c1c !important;
@@ -1029,16 +1075,24 @@ nav a.active {
 /* Force all text elements inside buttons to be white - maximum specificity */
 .event-card-footer .btn,
 .event-card-footer .btn-outline,
+.event-card-footer .btn-small,
+.event-card-footer .btn-small.btn-outline,
 .event-card-footer a.btn,
-.event-card-footer a.btn-outline {
+.event-card-footer a.btn-outline,
+.event-card-footer a.btn-small,
+.event-card-footer a.btn-small.btn-outline {
   color: #ffffff !important;
   font-weight: 700 !important;
 }
 
 .event-card-footer .btn span,
 .event-card-footer .btn-outline span,
+.event-card-footer .btn-small span,
+.event-card-footer .btn-small.btn-outline span,
 .event-card-footer a.btn span,
-.event-card-footer a.btn-outline span {
+.event-card-footer a.btn-outline span,
+.event-card-footer a.btn-small span,
+.event-card-footer a.btn-small.btn-outline span {
   font-size: 1rem;
   color: #ffffff !important;
   font-weight: 700 !important;
@@ -1047,8 +1101,12 @@ nav a.active {
 /* Force all child elements to be white */
 .event-card-footer .btn *,
 .event-card-footer .btn-outline *,
+.event-card-footer .btn-small *,
+.event-card-footer .btn-small.btn-outline *,
 .event-card-footer a.btn *,
-.event-card-footer a.btn-outline * {
+.event-card-footer a.btn-outline *,
+.event-card-footer a.btn-small *,
+.event-card-footer a.btn-small.btn-outline * {
   color: #ffffff !important;
 }
 
@@ -1064,7 +1122,7 @@ nav a.active {
   display: inline-block;
   padding: var(--spacing-sm) var(--spacing-md);
   background-color: var(--sapf-primary);
-  color: var(--text-on-dark);
+  color: #ffffff !important; /* Force white text for all buttons */
   border: none;
   border-radius: 4px;
   font-size: 1rem;
@@ -1080,7 +1138,13 @@ nav a.active {
   background-color: #b71c1c; /* Darker red for better contrast */
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  color: var(--text-on-dark) !important; /* Force white text on hover */
+  color: #ffffff !important; /* Force white text on hover */
+}
+
+/* Ensure all button text elements are white (except outline buttons) */
+.btn:not(.btn-outline),
+.btn:not(.btn-outline) * {
+  color: #ffffff !important;
 }
 
 .btn:focus {
@@ -1090,12 +1154,17 @@ nav a.active {
 
 .btn-primary {
   background-color: var(--sapf-primary);
-  color: var(--text-on-dark);
+  color: #ffffff !important; /* Force white text */
 }
 
 .btn-primary:hover {
   background-color: #b71c1c; /* Darker red for better contrast */
-  color: var(--text-on-dark) !important; /* Force white text */
+  color: #ffffff !important; /* Force white text */
+}
+
+.btn-primary,
+.btn-primary * {
+  color: #ffffff !important;
 }
 
 .btn-secondary {
@@ -1111,9 +1180,22 @@ nav a.active {
 .btn-outline {
   background-color: transparent;
   border: 2px solid var(--sapf-primary);
-  color: var(--sapf-primary);
+  color: var(--sapf-primary) !important; /* Keep blue text for outline buttons */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-weight: 600; /* Make text bolder for better visibility */
+}
+
+.btn-outline,
+.btn-outline * {
+  color: var(--sapf-primary) !important; /* Ensure outline button text stays blue */
+}
+
+/* Additional reinforcement for button link text colors - ensure child elements also have correct colors */
+a.btn:not(.btn-outline):not(.btn-on-dark) *,
+a.btn-small:not(.btn-outline):not(.btn-on-dark) *,
+a.btn-primary *,
+a.btn-secondary * {
+  color: #ffffff !important;
 }
 
 /* Event card footer buttons are handled above with explicit colors */
@@ -1141,9 +1223,15 @@ nav a.active {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
 }
 
-.btn-small {
+.btn-small:not(.btn-outline) {
   padding: var(--spacing-xs) var(--spacing-sm);
   font-size: 0.875rem;
+  color: #ffffff !important; /* Force white text for small buttons (not outline) */
+}
+
+.btn-small:not(.btn-outline),
+.btn-small:not(.btn-outline) * {
+  color: #ffffff !important;
 }
 
 /* Utility Classes for Text on Images */
@@ -1350,16 +1438,49 @@ nav a.active {
   background: var(--sapf-light);
 }
 
-.document-card-footer .btn {
+.document-card-footer .btn,
+.document-card-footer .btn-small,
+.document-card-footer a.btn,
+.document-card-footer a.btn-small,
+.document-card-footer .btn.btn-small,
+.document-card-footer a.btn.btn-small {
   width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-xs);
+  background-color: var(--sapf-primary) !important;
+  color: #ffffff !important; /* Explicit white text - maximum contrast */
+  border: 2px solid var(--sapf-primary) !important;
+  font-weight: 700 !important; /* Bold text for visibility */
 }
 
-.document-card-footer .btn span {
+.document-card-footer .btn:hover,
+.document-card-footer .btn-small:hover,
+.document-card-footer .btn.btn-small:hover {
+  background-color: #b71c1c !important; /* Darker red on hover */
+  color: #ffffff !important; /* Keep white text */
+  border-color: #b71c1c !important;
+}
+
+.document-card-footer .btn span,
+.document-card-footer .btn-small span,
+.document-card-footer .btn.btn-small span {
   font-size: 1rem;
+  color: #ffffff !important; /* Ensure span text is white */
+}
+
+/* Force all text elements inside document card buttons to be white */
+.document-card-footer .btn,
+.document-card-footer .btn-small,
+.document-card-footer a.btn,
+.document-card-footer a.btn-small,
+.document-card-footer .btn.btn-small,
+.document-card-footer a.btn.btn-small,
+.document-card-footer .btn *,
+.document-card-footer .btn-small *,
+.document-card-footer .btn.btn-small * {
+  color: #ffffff !important;
 }
 
 .card-badge.general {
@@ -1550,8 +1671,40 @@ td .no-download {
   font-style: italic;
 }
 
-td .btn {
+td .btn,
+td .btn-small,
+td a.btn,
+td a.btn-small,
+td .btn.btn-small,
+td a.btn.btn-small {
   white-space: nowrap;
+  background-color: var(--sapf-primary) !important;
+  color: #ffffff !important; /* Explicit white text - maximum contrast */
+  border: 2px solid var(--sapf-primary) !important;
+  font-weight: 700 !important; /* Bold text for visibility */
+}
+
+td .btn:hover,
+td .btn-small:hover,
+td .btn.btn-small:hover {
+  background-color: #b71c1c !important; /* Darker red on hover */
+  color: #ffffff !important; /* Keep white text */
+  border-color: #b71c1c !important;
+}
+
+/* Force all text elements inside table cell buttons to be white */
+td .btn,
+td .btn-small,
+td a.btn,
+td a.btn-small,
+td .btn.btn-small,
+td a.btn.btn-small,
+td .btn *,
+td .btn-small *,
+td .btn.btn-small *,
+td a.btn *,
+td a.btn-small * {
+  color: #ffffff !important;
 }
 
 /* National Logs Section */
@@ -1612,6 +1765,41 @@ td .btn {
   margin-top: auto;
   padding-top: var(--spacing-sm);
   border-top: 1px solid var(--sapf-border);
+}
+
+.national-log-footer .btn,
+.national-log-footer .btn-small,
+.national-log-footer a.btn,
+.national-log-footer a.btn-small,
+.national-log-footer .btn.btn-small,
+.national-log-footer a.btn.btn-small {
+  background-color: var(--sapf-primary) !important;
+  color: #ffffff !important; /* Explicit white text - maximum contrast */
+  border: 2px solid var(--sapf-primary) !important;
+  font-weight: 700 !important; /* Bold text for visibility */
+}
+
+.national-log-footer .btn:hover,
+.national-log-footer .btn-small:hover,
+.national-log-footer .btn.btn-small:hover {
+  background-color: #b71c1c !important; /* Darker red on hover */
+  color: #ffffff !important; /* Keep white text */
+  border-color: #b71c1c !important;
+}
+
+/* Force all text elements inside national log footer buttons to be white */
+.national-log-footer .btn,
+.national-log-footer .btn-small,
+.national-log-footer a.btn,
+.national-log-footer a.btn-small,
+.national-log-footer .btn.btn-small,
+.national-log-footer a.btn.btn-small,
+.national-log-footer .btn *,
+.national-log-footer .btn-small *,
+.national-log-footer .btn.btn-small *,
+.national-log-footer a.btn *,
+.national-log-footer a.btn-small * {
+  color: #ffffff !important;
 }
 
 .section-description {
@@ -2260,13 +2448,13 @@ footer {
   margin-bottom: var(--spacing-md);
 }
 
-.content-section .card a {
-  color: var(--sapf-primary) !important; /* Ensure links are visible */
+.content-section .card a:not(.btn):not(.btn-small):not(.btn-outline):not(.btn-primary):not(.btn-secondary):not(.btn-on-dark) {
+  color: var(--sapf-primary) !important; /* Ensure links are visible (but not buttons) */
   text-decoration: underline;
 }
 
-.content-section .card a:hover {
-  color: var(--sapf-secondary) !important; /* Maintain contrast on hover */
+.content-section .card a:not(.btn):not(.btn-small):not(.btn-outline):not(.btn-primary):not(.btn-secondary):not(.btn-on-dark):hover {
+  color: var(--sapf-secondary) !important; /* Maintain contrast on hover (but not buttons) */
   text-decoration: underline;
 }
 
