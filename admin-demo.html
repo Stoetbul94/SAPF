@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Demo - Upload content for SAPF website">
+    <title>Admin Demo | South African Pistol Federation</title>
+    <link rel="icon" type="image/png" href="assets/images/SAPF.png">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        .admin-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+        .admin-header {
+            background: var(--sapf-primary, #1a4d3e);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .admin-header h1 {
+            margin: 0 0 0.5rem 0;
+            color: white;
+        }
+        .admin-header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        .demo-badge {
+            display: inline-block;
+            background: #ff9800;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+        .admin-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .form-group select {
+            cursor: pointer;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-group small {
+            display: block;
+            margin-top: 0.25rem;
+            color: #666;
+            font-size: 0.875rem;
+        }
+        .btn-submit {
+            background: var(--sapf-primary, #1a4d3e);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .btn-submit:hover {
+            background: var(--sapf-primary-dark, #0f3329);
+        }
+        .btn-submit:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .message {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        .conditional-field {
+            display: none;
+        }
+        .conditional-field.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="assets/images/SAPF.png" alt="South African Pistol Federation Logo" class="logo-img">
+                    <div class="logo-text">
+                        <div>SAPF</div>
+                        <div class="tagline">South African Pistol Federation</div>
+                    </div>
+                </a>
+                <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+                <nav aria-label="Main navigation">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="disciplines.html">Disciplines</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="results.html">Results</a></li>
+                        <li><a href="documents.html">Documents</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="admin-container">
+                <div class="admin-header">
+                    <h1>Admin Demo Portal <span class="demo-badge">DEMO MODE</span></h1>
+                    <p>Simulate content uploads for demonstration purposes. No authentication required.</p>
+                </div>
+
+                <div id="message" class="message" role="alert"></div>
+
+                <form id="admin-form" class="admin-form">
+                    <!-- Content Type -->
+                    <div class="form-group">
+                        <label for="content-type">Content Type *</label>
+                        <select id="content-type" name="contentType" required>
+                            <option value="">-- Select Content Type --</option>
+                            <option value="event">Event</option>
+                            <option value="result">Result</option>
+                            <option value="entry-form">Entry Form (Document)</option>
+                        </select>
+                        <small>Select the type of content you want to add</small>
+                    </div>
+
+                    <!-- Event Fields -->
+                    <div id="event-fields" class="conditional-field">
+                        <div class="form-group">
+                            <label for="event-title">Event Title *</label>
+                            <input type="text" id="event-title" name="eventTitle" placeholder="e.g., SAPF National Championships - ISSF">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-location">Location *</label>
+                            <input type="text" id="event-location" name="eventLocation" placeholder="e.g., Pretoria Shooting Range">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-date">Date *</label>
+                            <input type="date" id="event-date" name="eventDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-discipline">Discipline *</label>
+                            <select id="event-discipline" name="eventDiscipline">
+                                <option value="ISSF">ISSF</option>
+                                <option value="NPA/PPC">NPA/PPC</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-status">Status *</label>
+                            <select id="event-status" name="eventStatus">
+                                <option value="upcoming">Upcoming</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-entry-form">Entry Form PDF</label>
+                            <select id="event-entry-form" name="eventEntryForm">
+                                <option value="">-- Select PDF (optional) --</option>
+                            </select>
+                            <small>Select an existing PDF from the documents folder</small>
+                        </div>
+                    </div>
+
+                    <!-- Result Fields -->
+                    <div id="result-fields" class="conditional-field">
+                        <div class="form-group">
+                            <label for="result-event">Event Name *</label>
+                            <input type="text" id="result-event" name="resultEvent" placeholder="e.g., SAPF Open Competition">
+                        </div>
+                        <div class="form-group">
+                            <label for="result-date">Date *</label>
+                            <input type="date" id="result-date" name="resultDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="result-discipline">Discipline *</label>
+                            <select id="result-discipline" name="resultDiscipline">
+                                <option value="ISSF">ISSF</option>
+                                <option value="NPA/PPC">NPA/PPC</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="result-type">Type *</label>
+                            <input type="text" id="result-type" name="resultType" placeholder="e.g., Air Pistol, PPC 1500, National Log">
+                            <small>Enter category name or "National Log" for national logs</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="result-pdf">Results PDF *</label>
+                            <select id="result-pdf" name="resultPdf" required>
+                                <option value="">-- Select PDF --</option>
+                            </select>
+                            <small>Select an existing PDF from the documents folder</small>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="result-national-log" name="resultNationalLog">
+                                This is a National Log
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Entry Form (Document) Fields -->
+                    <div id="entry-form-fields" class="conditional-field">
+                        <div class="form-group">
+                            <label for="doc-title">Document Title *</label>
+                            <input type="text" id="doc-title" name="docTitle" placeholder="e.g., National Championships Entry Form 2024">
+                        </div>
+                        <div class="form-group">
+                            <label for="doc-discipline">Discipline *</label>
+                            <select id="doc-discipline" name="docDiscipline">
+                                <option value="ISSF">ISSF</option>
+                                <option value="NPA/PPC">NPA/PPC</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="doc-year">Year *</label>
+                            <input type="number" id="doc-year" name="docYear" min="2000" max="2100" value="2024">
+                        </div>
+                        <div class="form-group">
+                            <label for="doc-description">Description</label>
+                            <textarea id="doc-description" name="docDescription" placeholder="Brief description of the document"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="doc-pdf">PDF File *</label>
+                            <select id="doc-pdf" name="docPdf" required>
+                                <option value="">-- Select PDF --</option>
+                            </select>
+                            <small>Select an existing PDF from the documents folder</small>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submit-btn">Add Content</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="about.html">About SAPF</a>
+                    <a href="disciplines.html">Disciplines</a>
+                    <a href="events.html">Events Calendar</a>
+                    <a href="results.html">Results & Logs</a>
+                    <a href="documents.html">Documents</a>
+                    <a href="gallery.html">Photo Gallery</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:info@sapf.co.za">info@sapf.co.za</a></p>
+                    <p>Phone: <a href="tel:+27123456789">+27 (0)12 345 6789</a></p>
+                    <p>Address: Pretoria, South Africa</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="documents.html">All Documents</a>
+                    <a href="results.html">Competition Results</a>
+                    <a href="events.html">Upcoming Events</a>
+                    <a href="terms.html">Terms of Use</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 South African Pistol Federation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/admin-demo.js"></script>
+</body>
+</html>

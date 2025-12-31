@@ -305,10 +305,54 @@ function setupLazyLoading() {
 }
 
 /**
+ * Load demo updates from localStorage
+ * DEMO MODE — replace with Firebase Firestore after client approval
+ */
+function loadDemoUpdates() {
+    try {
+        // Check if demo mode is active
+        const demoActive = localStorage.getItem('sapf-demo-active');
+        if (!demoActive) return;
+        
+        // Load demo updates for each data type
+        const eventsDemo = localStorage.getItem('sapf-demo-events');
+        const resultsDemo = localStorage.getItem('sapf-demo-results');
+        const documentsDemo = localStorage.getItem('sapf-demo-documents');
+        
+        if (eventsDemo) {
+            const parsed = JSON.parse(eventsDemo);
+            if (Array.isArray(parsed)) {
+                eventsData = parsed;
+            }
+        }
+        
+        if (resultsDemo) {
+            const parsed = JSON.parse(resultsDemo);
+            if (Array.isArray(parsed)) {
+                resultsData = parsed;
+            }
+        }
+        
+        if (documentsDemo) {
+            const parsed = JSON.parse(documentsDemo);
+            if (Array.isArray(parsed)) {
+                documentsData = parsed;
+            }
+        }
+    } catch (error) {
+        console.warn('Error loading demo updates from localStorage:', error);
+        // Continue with regular data loading if demo updates fail
+    }
+}
+
+/**
  * Load JSON data files
  */
 async function loadData() {
     try {
+        // DEMO MODE — Load base data from JSON files
+        // Replace with Firebase Firestore after client approval
+        
         // Load events
         const eventsResponse = await fetch('data/events.json');
         const eventsJson = await eventsResponse.json();
@@ -328,6 +372,10 @@ async function loadData() {
         const galleryResponse = await fetch('data/gallery.json');
         const galleryJson = await galleryResponse.json();
         galleryData = galleryJson.images || [];
+        
+        // DEMO MODE — Merge with demo updates from localStorage
+        // Replace with Firebase Firestore after client approval
+        loadDemoUpdates();
         
         // Render based on current page
         renderPageContent();
